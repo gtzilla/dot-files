@@ -1,0 +1,39 @@
+# 
+#  bash_aliases
+#  .shell
+#  
+#  Created by gregory tomlinson on 2011-02-20.
+#  Copyright 2011 the public domain. All rights reserved.
+# 
+alias listen_websocket="sudo tcpdump -A -f -i lo0 port 9499"
+alias py="python"
+alias pip="/opt/local/bin/pip-2.6" ## handle mac ports location for pip
+alias digiwhack="cd /Users/gregorytomlinson/Documents/projects/website/digiwhack"
+alias phone="ssh -C root@digiwhack.com"
+alias projects="cd $HOME/Documents/projects/"
+alias ll="ls -lska"
+# alias exfm="cd ~/Documents/exfm"
+# alias go_jobs="exfm; ssh -i jobs.pem ubuntu@ec2-184-72-89-51.compute-1.amazonaws.com"
+# alias go_exfm="exfm; ssh -i website.pem ubuntu@174.129.12.157"
+alias workoff="deactivate"
+alias go_local="ssh -C gregory@linux"
+alias home_phone="ssh -C gregory@encoded.kicks-ass.net"
+alias app_frag="/usr/bin/python2.6 /Applications/GoogleAppEngineLauncher.app/Contents/Resources/GoogleAppEngine-default.bundle/Contents/Resources/google_appengine/dev_appserver.py --admin_console_server= --port=8082 --address=0.0.0.0  /Users/gregorytomlinson/Documents/projects/fastFrag/app_engine/fastfrag-converter"
+alias crash="cd /Users/gregorytomlinson/Documents/projects/website/crashquery"
+alias fastfrag="cd /Users/gregorytomlinson/Documents/projects/fastFrag"
+alias fastFrag="cd /Users/gregorytomlinson/Documents/projects/fastFrag"
+alias net_listen="sudo tcpdump -A -f -e -S -i en1"
+alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+alias go_greg="cd ~/Documents/bitly; ssh -C -i greg-ec2.pem root@greg.ec2.bitly.net"
+alias upload_labs="cd ~/Documents/projects; rsync -avz --exclude=\".*\" crazy-fe/ root@greg.ec2.bitly.net:/root/crazy-labs-fe"
+alias pop_anon_proxy="ssh -L 3072:localhost:9050 h0neyp0t@honeypot cat"
+alias pop_proxy="ssh -C -D 3072 gregory@encoded.kicks-ass.net cat"
+alias phone_proxy="ssh -C -D 3072 root@digiwhack.com"
+# alias pop_home="ssh -L 3072:localhost:9050 gregory@encoded.kicks-ass.net cat"
+alias serve="python -m SimpleHTTPServer"
+alias myip="python -c 'import socket; print socket.gethostbyname(socket.gethostname())'"
+
+## 
+# curl for useragents via https://github.com/justinlilly/jlilly-bashy-dotfiles/blob/master/.shell/aliases
+alias iecurl="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)\""
+alias ffcurl="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.0 (.NET CLR 3.5.30729)\""
