@@ -7,30 +7,6 @@
 # 
 
 ## replace with load_env and alias workon="load_env"
-#source /usr/local/bin/virtualenvwrapper.sh
-## delay load of virtual env sh script
-function load_env {
-    if [ type -p workon &> /dev/null ]; then
-        workon "$@" # nothing to do, source is loaded, trigger workon
-    else
-        unalias workon
-        source /opt/local/bin/virtualenvwrapper_bashrc-2.6
-        workon "$@"
-    fi
-}
-alias workon="load_env"
-## old, probably remove
-# function has_virtualenv {
-#     if [ -e .venv ]; then
-#         load_env
-#         curr_env=`cat .venv`
-#         workon $curr_env
-#     fi
-# }
-# function venv_cd () {
-#     cd "$@" && has_virtualenv
-# }
-# alias cd="venv_cd"
 
 # display current git branch
 function parse_git_branch {
@@ -56,4 +32,21 @@ LIGHT_PURPLE="\[\033[1;35m\]"
 LIGHT_CYAN="\[\033[1;36m\]"
 WHITE="\[\033[00m\]"
 #\$(parse_svn_branch)\$(parse_hg_branch)
-export PS1="$LIGHT_GREEN\h$LIGHT_CYAN \w$WHITE:$YELLOW\$(parse_git_branch)$WHITE\$ "
+#http://gt-co.de/sFXyrC
+export PS1="$WHITE\t\r\n$LIGHT_GREEN\h$LIGHT_CYAN \w$WHITE:$YELLOW\$(parse_git_branch)$WHITE\$ "
+
+# Use Multiple Host Files
+# http://unlettered.org/2009/05/13/managing-multiple-etchosts-files-in-mac-os-x/
+# Setup hs* commands
+HSPATH=/usr/local/share/hs
+if [ -d $HSPATH ]; then
+    HSFILES=(`ls $HSPATH`)
+    HSCOUNT=${#HSFILES[*]}
+    for (( HSI=0 ; $HSI < $HSCOUNT ; HSI=$HSI+1 )); do
+        HSFILE=${HSFILES[HSI]}
+        HSFILE=${HSFILE:6}
+        alias hs$HSFILE='hs '$HSFILE
+    done
+fi
+unset HSPATH HSFILES HSCOUNT HSI HSFILE
+

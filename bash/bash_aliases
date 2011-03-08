@@ -1,0 +1,59 @@
+# 
+#  bash_aliases
+#  .shell
+#  
+#  Created by gregory tomlinson on 2011-02-20.
+# 
+alias py="python"
+alias phone="ssh rlinux"
+alias rphone="ssh rootdigiwhack.com"
+alias projects="cd $HOME/Documents/projects/"
+alias show_networks="airport -s"
+alias ll="ls -lska"
+alias l="ls -F"
+
+alias workoff="deactivate"
+
+# Home Settings
+alias go_local="ssh gregory@192.168.1.11"
+alias home_phone="ssh gregory@rlinux"
+alias system_info="sudo pmset -g"
+alias forward_local="echo 'http://digiwhack.com:8000' | pbcopy; echo 'check http://digiwhack.com:8000'; ssh rlinux -R 5079:0.0.0.0:8093" 
+alias active_ports="sudo lsof -iTCP -sTCP:LISTEN"
+alias open_on_port80="lsof -i :80"
+alias strace_pid="sudo dtruss -acf -p " ## wants a PID, check dtruss for strace
+alias strace_worker="sudo fs_usage -w -f filesys mdworker"
+function most_used() {
+    history | awk '{print $2}' | sort | uniq -c | sort -rn | head
+}
+function expand_url() {
+    curl -sI http://gt-co.de/n8VPUa | awk '{ if ($1 == "Location:") print $2 }' | pbcopy
+    #curl -sI $1 | grep Location: | cut -d " " -f 2 | tr -d "\n" | pbcopy
+}
+
+alias listen_websocket="sudo tcpdump -A -f -i lo0 port 9499"
+alias sniffhost="sudo tcpdump -nnvvAs 4096 -i en1 host " # and the host name
+alias listen_chrome="sudo tcpdump -nnvvAs 4096 -i en1 host chrome-beta.bitly.com"
+alias net_listen="sudo tcpdump -A -f -e -S -i en1"
+# alias upload_labs="cd ~/Documents/projects/everythingelse/bitly; rsync -avz --exclude=\".*\" crazy-fe/ contract_hostname:/root/crazy-labs-fe; cd -;"
+# alias upload_fastSearch="cd ~/Documents/projects/everythingelse/bitly; rsync -avz --exclude=\".*\" prototypes/fastSearch/ c_hostname:/home/gregory/prototypes/fastSearch; cd -;"
+# alias upload_chrome="cd ~/Documents/projects/extensions/bitly_chrome_extension; rsync -avz --exclude \".*\" build/ c_hostname:/bitly/sites/chrome_release_channel/chrome; cd -;"
+alias build_airport_tunnel="networksetup -setsocksfirewallproxy AirPort localhost 3072 off"
+alias phone_proxy="networksetup -setsocksfirewallproxystate AirPort on; ssh -D 3072 rlinux cat; networksetup -setsocksfirewallproxystate AirPort off;"
+alias phone_proxy_off="networksetup -setsocksfirewallproxystate AirPort off"
+alias serve="python -m SimpleHTTPServer" #8005
+alias myip="python -c 'import socket; print socket.gethostbyname(socket.gethostname())'"
+alias vim="/usr/bin/vim -p"
+###
+## networksetup -setsocksfirewallproxy AirPort localhost 3072 off
+#
+
+alias start_mongo="launchctl start com.mongodb.enabled"
+
+## 
+# curl for useragents via https://github.com/justinlilly/jlilly-bashy-dotfiles/blob/master/.shell/aliases
+alias iecurl="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)\""
+alias ffcurl="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.0 (.NET CLR 3.5.30729)\""
+alias emacs="open /Applications/Emacs.app"
+
+alias imgsize="identify -format '%w %h\n'"
