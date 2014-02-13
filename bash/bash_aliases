@@ -7,7 +7,7 @@
 alias py="python"
 alias phone="ssh rlinux"
 alias rphone="ssh rootdigiwhack.com"
-alias projects="cd $HOME/Documents/projects/"
+alias projects="cd $HOME/Documents/google_drive/code/"
 alias show_networks="airport -s"
 alias ll="ls -lska"
 alias l="ls -F"
