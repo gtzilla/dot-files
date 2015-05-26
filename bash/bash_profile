@@ -4,13 +4,13 @@
 
 # link
 # sudo ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/sbin/airport
-if [ -f ~/Documents/google_drive/code/dot-files/bash/bash_aliases ]
+if [ -f ~/Documents/code/dot-files/bash/bash_aliases ]
 then
- . ~/Documents/google_drive/code/dot-files/bash/bash_aliases
+ . ~/Documents/code/dot-files/bash/bash_aliases
 fi
-if [ -f ~/Documents/google_drive/code/dot-files/bash/bash_funcs ]
+if [ -f ~/Documents/code/dot-files/bash/bash_funcs ]
 then
-  . ~/Documents/google_drive/code/dot-files/bash/bash_funcs
+  . ~/Documents/code/dot-files/bash/bash_funcs
 fi
 export ANDROID_TOOLS_PATH="~/Documents/projects/everythingelse/android/android-sdk-macosx"
 export NODE_PATH="/usr/local/lib/node"

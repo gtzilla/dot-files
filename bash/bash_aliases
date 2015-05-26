@@ -5,7 +5,7 @@
 #  Created by gregory tomlinson on 2011-02-20.
 # 
 alias py="python"
-alias projects="cd $HOME/Documents/google_drive/code/"
+alias projects="cd $HOME/Documents/code/"
 alias show_networks="airport -s"
 alias ll="ls -lska"
 alias l="ls -F"
