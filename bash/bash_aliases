@@ -26,20 +26,16 @@ function most_used() {
 
 alias listen_websocket="sudo tcpdump -A -f -i lo0 port 9499"
 alias sniffhost="sudo tcpdump -nnvvAs 4096 -i en1 host " # and the host name
-alias listen_chrome="sudo tcpdump -nnvvAs 4096 -i en1 host chrome-beta.bitly.com"
+# alias listen_chrome="sudo tcpdump -nnvvAs 4096 -i en1 host chrome-beta.bitly.com"
 alias net_listen="sudo tcpdump -A -f -e -S -i en1"
 
 alias serve="python -m SimpleHTTPServer" #8005
-alias myip="python -c 'import socket; print socket.gethostbyname(socket.gethostname())'"
+alias myip="curl ifconfig.co"
 
 ###
 ## networksetup -setsocksfirewallproxy AirPort localhost 3072 off
-#
 
-## 
 # curl for useragents via https://github.com/justinlilly/jlilly-bashy-dotfiles/blob/master/.shell/aliases
 alias iecurl="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)\""
 alias ffcurl="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.0 (.NET CLR 3.5.30729)\""
-alias emacs="open /Applications/Emacs.app"
-
-
+alias make_sock5='ssh -D 8123 -f -C -q -N tvdoor.remote'
